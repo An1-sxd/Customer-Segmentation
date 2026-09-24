@@ -20,8 +20,10 @@ The dataset is included in this project for training and local testing.
 - `ID` and the original `Dt_Customer` column removed before training
 - Categorical encoding with Pandas `get_dummies` and `drop_first=True`
 - Numerical feature scaling with `StandardScaler`
-- Cluster count evaluated with an inertia plot
-- Customer groups created with K-Means clustering using 5 clusters, `random_state=42`, and `n_init=10`
+- Cluster count evaluated with an inertia plot using elbow method
+- Customer groups created with K-Means clustering using 5 clusters, `random_state=42`, and applying `k-means++`
+- Cluster summaries reviewed by comparing average customer and purchasing features across groups
+- Clusters visualized in two dimensions using PCA
 - Trained model and scaler saved with Joblib
 
 The model uses the complete engineered and encoded feature set. The frontend and API align incoming one-hot encoded data with the saved model columns before scaling and prediction.
@@ -74,7 +76,7 @@ Response:
 
 ```json
 {
-  "predicted_cluster": 4
+  "predicted_cluster": 3
 }
 ```
 
