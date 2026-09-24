@@ -74,7 +74,7 @@ Response:
 
 ```json
 {
-  "predicted_cluster": 4
+  "predicted_cluster": 3
 }
 ```
 
